@@ -6,6 +6,13 @@ const cli = meow(`
   Usage
     $ rj <command (default: help)>
 
+  Commands
+    generate, g
+    new, n
+    serve, s
+    test, t
+    build, b
+
   Options
     -fc, --functional-component 
     -st, --skip-test
@@ -13,11 +20,15 @@ const cli = meow(`
     -v, --verbose
     -e, --environment (default: development)
     -c, --config (default: .rj)
+    -cov, --coverage (default: false)
 
   Examples
-    $ rj component profile-card
-    $ rj component profile-card --functional-component
-    $ rj container users
+    $ rj new awesome-project
+    $ rj generate component profile-card
+    $ rj generate component profile-card --functional-component
+    $ rj generate container users
+    $ rj generate reducer users
+    $ rj generate action users
 `, {
   alias: {
     fc: 'functional-component',
