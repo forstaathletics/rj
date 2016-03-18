@@ -1,0 +1,6 @@
+#!/usr/bin/env babel-node
+
+process.title = 'rj'
+
+var rj = require('../dist/cli')
+
