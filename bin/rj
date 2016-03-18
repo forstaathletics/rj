@@ -2,4 +2,4 @@
 
 process.title = 'rj'
 
-var rj = require('../dist/cli/rj')
+var rj = require('../dist/cli')
