@@ -1,6 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 
+export let desc = 'Create a JS module from the given path(s)'
+export let name = 'mod'
+
 const pathParts = (mPath) => {
   // console.log('pathParts', mPath)
 
@@ -67,7 +70,7 @@ export let builder = {
   }
 }
 export let handler = (argv) => {
-  // console.log('CMD argv', argv)
+  console.log('CMD argv', argv)
   if (!argv._) {
     return
   }
@@ -81,6 +84,3 @@ export let handler = (argv) => {
     })
   }
 }
-
-export let desc = 'Create a JS module from the given path(s)'
-export let name = 'mod'
