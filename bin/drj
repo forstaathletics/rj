@@ -2,5 +2,5 @@
 
 process.title = 'rj'
 
-var rj = require('../dist/cli')
-
+// Use the pre-build sources
+var rj = require('../src/cli')

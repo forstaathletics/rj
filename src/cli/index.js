@@ -9,20 +9,23 @@ let cmds = findCmds(cmdsDir)
 // console.log('cmds?', cmds)
 
 let subCmds = cmds.subs.reduce((prev, sub) => {
-  if (sub.name === 'index') {
-    return prev
-  }
-
   if (sub.reqObjKeys.includes('builder') && sub.reqObjKeys.includes('handler')) {
-    // console.log(sub.name, sub.reqObjKeys)
     return prev.concat([sub])
   }
+
+  return prev
 }, [])
 
 // console.log('subCmds', subCmds)
 subCmds.forEach((sc) => {
-  yargs.command(sc.name, '', require(path.join(cmdsDir, sc.name)))
+  let cmd = sc.reqObj
+  yargs.command(cmd.name || sc.name, cmd.desc || '', cmd)
 })
 
 let argv = yargs.help('h').alias('h', 'help')
   .epilog('copyright 2016').argv
+
+// Show help if no commands are given
+if (!argv._ || argv._.length === 0) {
+  yargs.showHelp()
+}

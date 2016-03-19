@@ -1,8 +1,6 @@
 import fs from 'fs'
 import path from 'path'
 
-export let desc = 'Create a JS module'
-
 const pathParts = (mPath) => {
   // console.log('pathParts', mPath)
 
@@ -61,7 +59,13 @@ function mkMod (mPath) {
   mkdirp(parts[0], parts.slice(1))
 }
 
-export let builder = {}
+export let builder = {
+  quiet: {
+    default: false,
+    alias: 'q',
+    type: 'boolean'
+  }
+}
 export let handler = (argv) => {
   // console.log('CMD argv', argv)
   if (!argv._) {
@@ -71,6 +75,12 @@ export let handler = (argv) => {
   if (argv._[0] === 'mod') {
     argv._.slice(1).forEach((mod) => {
       mkMod(mod)
+      if (!argv.q) {
+        console.log('Created mod at path', mod)
+      }
     })
   }
 }
+
+export let desc = 'Create a JS module from the given path(s)'
+export let name = 'mod'
