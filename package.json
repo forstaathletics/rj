@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.7.2",
+    "chalk": "^1.1.1",
     "is-blank": "^1.1.0",
     "is-present": "^1.0.0",
     "meow": "^3.7.0",
