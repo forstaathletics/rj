@@ -6,10 +6,8 @@ export let desc = false
 export let name = 'mod'
 
 const pathParts = (mPath) => {
-  // console.log('pathParts', mPath)
 
   if (!mPath) {
-    // console.log('pathParts', mPath, 'top of path')
     return []
   }
 
@@ -18,10 +16,8 @@ const pathParts = (mPath) => {
 }
 
 function mkMod (mPath) {
-  // console.log('mkMod', mPath)
 
   const cPath = path.normalize(mPath)
-  // console.log('mkMod noramal path', cPath)
 
   if (path.isAbsolute(cPath)) {
     throw Error(`Only relative paths are allowed, ${mPath} is an invalid path.`)
@@ -29,7 +25,6 @@ function mkMod (mPath) {
 
   // Break the path into parts so we can easily traverse down it.
   let parts = pathParts(cPath)
-  // console.log('pathParts call', parts)
 
   if (fs.existsSync(cPath)) {
     const statData = fs.statSync(cPath)
@@ -41,7 +36,6 @@ function mkMod (mPath) {
   }
 
   function mkdirp (p, parts) {
-    // console.log('mkdirp', p, parts)
 
     if (!fs.existsSync(p)) {
       fs.mkdirSync(p)
@@ -49,7 +43,6 @@ function mkMod (mPath) {
 
     const indx = path.join(p, 'index.js')
     if (!fs.existsSync(indx)) {
-      // console.log('creating file', indx)
       fs.closeSync(fs.openSync(indx, 'w'))
     }
 
@@ -71,7 +64,6 @@ export let builder = {
   }
 }
 export let handler = (argv) => {
-  console.log('CMD argv', argv)
   if (!argv._) {
     return
   }
