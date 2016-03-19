@@ -1,6 +1,39 @@
-# rj
+# rj [![Build Status](https://secure.travis-ci.org/jeffbuttars/rj.png?branch=master)](https://travis-ci.org/jeffbuttars/rj) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
-React CLI and runtime basics. Not a YARBR!
+__Work in progress__
+
+Command React.
+
+```
+npm i -g rj && rj new awesome-react-project
+```
+
+Meet `rj`. `rj` is the missing CLI for building React apps. This isn't Yet Another React Boilerplate Repo (YARBR).
+This is an interface that seeks to improve developer happiness by handling the scaffolding and tasks that all projects share.
+`rj` seeks to consolidate the best community paradigms, as the thoughts of a community are better than the thought of developers on a single project.
+
+`rj` handles the build tooling and configuration so you can focus on building beautiful, interactive applications.
+
+Features:
+
+- Hot reloading, code splitting, and tree shaking
+- Concurrent tests with ava
+- Sensical build system with automatic minification and concatenation
+- CSS module system
+- Sass compilation
+- Project, component, container, and reducer generation
+- Redux integration
+- Developer middleware
+
+Built with < 3 using:
+
+- webpack
+- babel
+- ava
+- redux
+- css-modules
+- cssnano
+- yargs
 
 ## Installation
 
