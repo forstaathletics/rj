@@ -1,7 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 
-export let desc = 'Create a JS module from the given path(s)'
+// export let desc = 'Create a JS module from the given path(s)'
+export let desc = false
 export let name = 'mod'
 
 const pathParts = (mPath) => {

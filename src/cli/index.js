@@ -12,7 +12,7 @@ cmds.subs.map(sub => {
       sub.reqObjKeys.includes('handler')) {
     const cmd = sub.reqObj
     const cmdName = cmd.name || sub.name
-    let cmdDesc = cmd.desc || ''
+    let cmdDesc = cmd.desc
 
     if (cmd.alias) {
       yargs.command(cmd.alias, false, cmd)

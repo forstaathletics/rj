@@ -1,4 +1,4 @@
-export const desc = 'Echo back arguments'
+export const desc = false
 export const name = 'hello'
 
 export const builder = {
