@@ -1,0 +1,7 @@
+test:
+  post:
+    - npm run lint
+
+machine:
+  node:
+    version: 5.7.0
