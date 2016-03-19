@@ -19,8 +19,10 @@ let help = () => {
 export const handler = (argv) => {
   console.log('generate', argv)
 
-  if (argv.foo) {
+  if (argv._.length < 2) {
     help()
     return
   }
+
+  const item = argv._[1]
 }
