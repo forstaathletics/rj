@@ -25,7 +25,6 @@ let determineModType = (mod) => {
 }
 
 export let getModInfo = (modPath) => {
-  // console.log('getModInfo:', modPath)
   const statData = fs.statSync(modPath)
 
   let subs = []
@@ -68,5 +67,3 @@ export let getModInfo = (modPath) => {
 
   return res
 }
-
-

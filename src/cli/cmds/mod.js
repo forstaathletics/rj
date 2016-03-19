@@ -6,7 +6,6 @@ export let desc = false
 export let name = 'mod'
 
 const pathParts = (mPath) => {
-
   if (!mPath) {
     return []
   }
@@ -16,7 +15,6 @@ const pathParts = (mPath) => {
 }
 
 function mkMod (mPath) {
-
   const cPath = path.normalize(mPath)
 
   if (path.isAbsolute(cPath)) {
@@ -36,7 +34,6 @@ function mkMod (mPath) {
   }
 
   function mkdirp (p, parts) {
-
     if (!fs.existsSync(p)) {
       fs.mkdirSync(p)
     }

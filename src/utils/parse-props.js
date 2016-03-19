@@ -5,7 +5,7 @@ const parseProps = (props = []) => {
 
   parsedProps.names = props.map(prop => prop.split(':')[0])
 
-  const hasChildrenProp = props.some(prop => prop.indexOf('children') == 0)
+  const hasChildrenProp = props.some(prop => prop.indexOf('children') === 0)
 
   if (!hasChildrenProp) {
     parsedProps.names.push('children')
