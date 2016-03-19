@@ -36,7 +36,7 @@ npm i -g rj
 
   Examples
     $ rj new awesome-project
-    $ rj generate component profile-card
+    $ rj generate component profile-card username avatarUrl:string:required followers:number
     $ rj generate component profile-card --functional-component
     $ rj generate container users
     $ rj generate reducer users
