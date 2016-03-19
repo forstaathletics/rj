@@ -1,0 +1,6 @@
+#!/usr/bin/env babel-node
+
+process.title = 'rj'
+
+// Use the pre-build sources
+var rj = require('../src/cli')
