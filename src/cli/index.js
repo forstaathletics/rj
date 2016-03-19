@@ -6,16 +6,20 @@ import { findCmds } from '../utils/cmd'
 
 let cmdsDir = path.join(__dirname, 'cmds')
 let cmds = findCmds(cmdsDir)
-// console.log('cmds?', cmds)
 
 cmds.subs.map(sub => {
   if (sub.reqObjKeys.includes('builder') &&
       sub.reqObjKeys.includes('handler')) {
-    let cmd = sub.reqObj
-    // console.log('LIKE CMD', cmd)
-    yargs.command(cmd.name || sub.name,
-                  cmd.desc || '',
-                  cmd)
+    const cmd = sub.reqObj
+    const cmdName = cmd.name || sub.name
+    let cmdDesc = cmd.desc || ''
+
+    if (cmd.alias) {
+      yargs.command(cmd.alias, false, cmd)
+      cmdDesc += '\nAlias: ' + cmd.alias
+    }
+
+    yargs.command(cmdName, cmdDesc, cmd)
   }
 })
 

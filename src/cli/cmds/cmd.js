@@ -4,7 +4,7 @@ import { cmdDir } from '../../constants'
 import { findRjRoot } from '../../utils'
 
 export const desc = 'Generate a rj command module'
-export const name = 'cmd <name> [--desc] [--force]'
+export const name = 'cmd <name>'
 
 export const builder = {
   force: {
@@ -17,6 +17,11 @@ export const builder = {
     alias: 'd',
     type: 'string',
     describe: 'Command description'
+  },
+  alias: {
+    alias: 'a',
+    type: 'string',
+    describe: 'Command alias'
   }
 }
 
@@ -38,13 +43,19 @@ export const handler = (argv) => {
     throw Error('Cmd module already exists. Use --force if you wish to over write it!')
   }
 
-  const cmd = `
-  export const desc = '${argv.desc || ''}'
-  export const name = '${argv.name}'
+  let cmd = ''
+  if (argv.alias) {
+    cmd += `export const alias = '${argv.alias}'`
+  }
 
-  export const builder = {}
-  export const handler = (argv) => {
-  }\n`
+  cmd += `
+export const desc = '${argv.desc || ''}'
+export const name = '${argv.name}'
+
+export const builder = {}
+export const handler = (argv) => {
+  console.log('${argv.name}', argv)
+}\n`
 
   const fd = fs.openSync(cmdPath, 'w')
   fs.writeSync(fd, cmd)
