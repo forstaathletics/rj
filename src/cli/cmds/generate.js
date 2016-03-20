@@ -12,12 +12,20 @@ export const builder = {
   }
 }
 
-let help = () => {
+const gMap = {
+  'component': () => {},
+  'container': () => {},
+  'pod': () => {},
+  'reducer': () => {},
+  'action': () => {}
+}
+
+const help = () => {
   console.log('HELP!!!')
 }
 
 export const handler = (argv) => {
-  console.log('generate', argv)
+  // console.log('generate', argv)
 
   if (argv._.length < 2) {
     help()
@@ -25,4 +33,10 @@ export const handler = (argv) => {
   }
 
   const item = argv._[1]
+  // console.log(Object.keys(gMap).includes(item))
+
+  if (!Object.keys(gMap).includes(item)) {
+    throw Error(`generation sub item '${item}' is invalid!`)
+  }
+
 }
