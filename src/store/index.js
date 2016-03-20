@@ -1,9 +1,10 @@
 import { List } from 'immutable'
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import reducer, { addReducer } from './reducers'
-import reduxDevtools from '../dev/redux-devtools'
+import reduxDevtools from './dev/redux-devtools'
 
-var middleWares = List.of(mwFromSettings)
+// var middleWares = List.of(mwFromSettings)
+let middleWares = List()
 
 export function addMiddleware (mw) {
   middleWares = middleWares.push(mw)
@@ -11,6 +12,10 @@ export function addMiddleware (mw) {
 }
 
 var getCreateStore = function (mw) {
+  if (mw.size === 0) {
+    return createStore
+  }
+
   return applyMiddleware(...mw.toJS())(createStore)
 }
 
