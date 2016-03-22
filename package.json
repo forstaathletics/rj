@@ -1,6 +1,6 @@
 {
   "name": "rj",
-  "version": "0.1.0",
+  "version": "0.1.0-beta.1",
   "description": "rj, Command React",
   "main": "src/index.js",
   "scripts": {
