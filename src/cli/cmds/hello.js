@@ -1,5 +1,7 @@
+export const desc = false
+export const name = 'hello'
 
-export let builder = {
+export const builder = {
   sassy: {
     default: false,
     alias: 's',
@@ -7,19 +9,11 @@ export let builder = {
   }
 
 }
-export let handler = (argv) => {
-  // console.log('CMD argv', argv)
-  if (!argv._) {
-    return
-  }
 
+export const handler = (argv) => {
   let sass = argv.s ? '!!!' : ''
 
-  if (argv._[0] === 'hello') {
-    argv._.slice(1).forEach((arg) => {
-      console.log('Hello', arg + sass)
-    })
-  }
+  argv._.slice(1).forEach((arg) => {
+    console.log('Hello', arg + sass)
+  })
 }
-export let desc = 'Echo back arguments'
-export let name = 'hello'

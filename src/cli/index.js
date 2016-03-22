@@ -2,24 +2,25 @@
 
 import yargs from 'yargs'
 import path from 'path'
-import { findCmds } from '../utils'
+import { findCmds } from '../utils/cmd'
 
 let cmdsDir = path.join(__dirname, 'cmds')
 let cmds = findCmds(cmdsDir)
-// console.log('cmds?', cmds)
 
-let subCmds = cmds.subs.reduce((prev, sub) => {
-  if (sub.reqObjKeys.includes('builder') && sub.reqObjKeys.includes('handler')) {
-    return prev.concat([sub])
+cmds.subs.map(sub => {
+  if (sub.reqObjKeys.includes('builder') &&
+      sub.reqObjKeys.includes('handler')) {
+    const cmd = sub.reqObj
+    const cmdName = cmd.name || sub.name
+    let cmdDesc = cmd.desc
+
+    if (cmd.alias) {
+      yargs.command(cmd.alias, false, cmd)
+      cmdDesc += '\nAlias: ' + cmd.alias
+    }
+
+    yargs.command(cmdName, cmdDesc, cmd)
   }
-
-  return prev
-}, [])
-
-// console.log('subCmds', subCmds)
-subCmds.forEach((sc) => {
-  let cmd = sc.reqObj
-  yargs.command(cmd.name || sc.name, cmd.desc || '', cmd)
 })
 
 let argv = yargs.help('h').alias('h', 'help')
