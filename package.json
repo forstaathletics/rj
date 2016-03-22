@@ -6,6 +6,7 @@
   "scripts": {
     "build": "babel src/ -d dist",
     "lint": "eslint --ext .js --ext .jsx src",
+    "prepublish": "npm run build",
     "test": "ava test/**/*-test.js --verbose --require ./test/helpers/setup-ava-tests.js"
   },
   "bin": {
@@ -53,6 +54,7 @@
   "dependencies": {
     "babel-polyfill": "^6.7.2",
     "chalk": "^1.1.1",
+    "copy-dir": "0.0.8",
     "is-blank": "^1.1.0",
     "is-present": "^1.0.0",
     "meow": "^3.7.0",
