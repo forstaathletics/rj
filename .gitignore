@@ -4,4 +4,8 @@ coverage
 test-results.xml
 dist
 
+# Test related folders
+tmp
+
+# Text editor artifacts
 *.swp
