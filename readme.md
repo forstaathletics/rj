@@ -2,6 +2,10 @@
 
 __Work in progress__
 
+
+<img src="https://circleci.com/gh/forstaathletics/nikex.svg?style=shield&circle-token=4aa54518c909dc1524859e9eafc500c0751c84fa" />  
+[![Circle CI](https://circleci.com/gh/jeffbuttars/rj.svg?style=svg)](https://circleci.com/gh/jeffbuttars/rj)  
+
 Command React.
 
 ```
