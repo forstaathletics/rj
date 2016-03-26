@@ -1,9 +1,6 @@
-# rj [![Build Status](https://secure.travis-ci.org/jeffbuttars/rj.png?branch=master)](https://travis-ci.org/jeffbuttars/rj) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+# rj [![Build Status](https://secure.travis-ci.org/jeffbuttars/rj.png?branch=master)](https://travis-ci.org/jeffbuttars/rj) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard) [![Circle CI](https://circleci.com/gh/jeffbuttars/rj.svg?style=svg)](https://circleci.com/gh/jeffbuttars/rj)
 
 __Work in progress__
-
-
-[![Circle CI](https://circleci.com/gh/jeffbuttars/rj.svg?style=svg)](https://circleci.com/gh/jeffbuttars/rj)  
 
 Command React.
 
