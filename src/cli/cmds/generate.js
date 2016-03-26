@@ -38,5 +38,4 @@ export const handler = (argv) => {
   if (!Object.keys(gMap).includes(item)) {
     throw Error(`generation sub item '${item}' is invalid!`)
   }
-
 }
