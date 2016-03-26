@@ -1,6 +1,5 @@
 import { List, Map } from 'immutable'
-import { createStore, applyMiddleware, combineReducers } from 'redux'
-import reduxDevtools from './dev/redux-devtools'
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 
 /**
  * A high level, testable, store 'maker'.
@@ -12,7 +11,7 @@ import reduxDevtools from './dev/redux-devtools'
  *
  * // Create a storeMaker instnace
  * let Store = storeMaker()
- * 
+ *
  * // build up a store
  * Store.addReducer(...)
  * Store.addMiddleware(...)
@@ -20,26 +19,23 @@ import reduxDevtools from './dev/redux-devtools'
  * // get a Redux store instance
  * let store = Store()
  */
+
 export default () => {
   let reducers = Map()
   let middlewares = List()
 
-  let getCreateStore = function (mw) {
-    if (mw.size === 0) {
-      return createStore
-    }
-
-    return applyMiddleware(...mw.toJS())(createStore)
-  }
-
   let create = (initial = {}) => {
     let reducer = combineReducers(reducers.toJS())
-    // Choose a the createStore/applyMiddleware wrapper based on production env.
-    // Use the devtools version for dev
-    let gcs = process.env.NODE_ENV !== 'production' ? reduxDevtools : getCreateStore
-    let cs = gcs(mw)
+    let enhancers = applyMiddleware(...middlewares.toJS())
 
-    return cs(reducer, initial)
+    if (process.env.NODE_ENV !== 'production') {
+      enhancers = compose(
+        enhancers,
+        window.devToolsExtension ? window.devToolsExtension() : f => f
+      )
+    }
+
+    return createStore(reducer, initial, enhancers)
   }
 
   // simple getters for testing.
