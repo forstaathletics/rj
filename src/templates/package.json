@@ -1,0 +1,45 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "Command React",
+  "engines": {
+    "node": "4.x"
+  },
+  "scripts": {
+    "start": "rj serve",
+    "test": "rj test"
+  },
+  "repository": "jeffbuttars/rj",
+  "license": "MIT",
+  "dependencies": {
+    "babel": "^6.3.26",
+    "babel-core": "^6.4.5",
+    "babel-eslint": "^5.0.0-beta8",
+    "babel-loader": "^6.2.1",
+    "babel-polyfill": "^6.3.14",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "file-loader": "^0.8.5",
+    "history": "^2.0.0-rc2",
+    "immutable": "^3.7.6",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-hot-loader": "^1.3.0",
+    "react-redux": "^4.4.0",
+    "react-router": "^2.0.0",
+    "react-router-redux": "^3.0.0",
+    "redux": "^3.3.1",
+    "redux-logger": "^2.5.0",
+    "redux-thunk": "^1.0.3",
+    "source-map-loader": "^0.1.5",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.12",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "devDependencies": {
+    "redux-devtools": "^3.1.1",
+    "redux-devtools-dock-monitor": "^1.1.0",
+    "redux-devtools-log-monitor": "^1.0.4"
+  }
+}
