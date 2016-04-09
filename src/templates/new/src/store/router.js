@@ -4,8 +4,8 @@ import App from '../containers/App'
 import About from '../containers/About'
 
 const routes = (
-  <Route path='/' component={ App }>
-    <Route path='/about' component={ About } />
+  <Route path='/' component={App}>
+    <Route path='/about' component={About} />
   </Route>
 )
 

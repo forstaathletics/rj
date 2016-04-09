@@ -15,7 +15,7 @@ class App extends Component {
       <div>
         <div>
           <h1>Hello, meet <code>rj</code></h1>
-          { props.children }
+          {props.children}
         </div>
       </div>
     )

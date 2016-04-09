@@ -14,10 +14,10 @@ const initialState = {}
 const store = configureStore(initialState)
 
 ReactDOM.render(
-  <Provider store={ store }>
+  <Provider store={store}>
     <div>
-      <Router history= { history }>
-        { routes }
+      <Router history={history}>
+        {routes}
       </Router>
     </div>
   </Provider>,
