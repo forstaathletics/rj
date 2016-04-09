@@ -7,7 +7,7 @@
 
 
 ```
-npm i -g rj && rj new awesome-react-project
+npm i -g rj-cli && rj new awesome-react-project
 ```
 
 
@@ -41,7 +41,7 @@ Built with < 3 using:
 ## Installation
 
 ```sh
-npm i -g rj
+npm i -g rj-cli
 ```
 
 ## Usage
