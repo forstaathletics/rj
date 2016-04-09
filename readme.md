@@ -1,12 +1,20 @@
-# rj [![Build Status](https://secure.travis-ci.org/forstaathletics/rj.png?branch=master)](https://travis-ci.org/forstaathletics/rj) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard) [![Circle CI](https://circleci.com/gh/forstaathletics/rj.svg?style=svg)](https://circleci.com/gh/forstaathletics/rj)
+# rj
+### Command React.
 
-__Work in progress__
+<!--
+Travis needs updating or removal.
+[![Build Status](https://secure.travis-ci.org/forstaathletics/rj.png?branch=master)](https://travis-ci.org/forstaathletics/rj) 
+-->
 
-Command React.
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard) [![Circle CI](https://circleci.com/gh/forstaathletics/rj.svg?style=svg)](https://circleci.com/gh/forstaathletics/rj)  
+
+<img src="http://www.fillmurray.com/56/56" style="border-radius:50%;" /> __A Work in progress__
+
 
 ```
 npm i -g rj && rj new awesome-react-project
 ```
+
 
 Meet `rj`. `rj` is the missing CLI for building React apps. This isn't Yet Another React Boilerplate Repo (YARBR).
 This is an interface that seeks to improve developer happiness by handling the scaffolding and tasks that all projects share.
