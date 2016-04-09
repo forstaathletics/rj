@@ -2,5 +2,15 @@ language: node_js
 node_js:
   - 'stable'
   - '5'
+compiler: clang-3.6
 env:
-    - NODE_ENV="production"
+  - CXX=clang-3.6
+  - NODE_ENV=production
+addons:
+  apt:
+    sources:
+      - llvm-toolchain-precise-3.6
+      - ubuntu-toolchain-r-test
+    packages:
+      - clang-3.6
+      - g++-4.8
