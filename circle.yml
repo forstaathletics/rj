@@ -3,5 +3,7 @@ test:
     - npm run lint
 
 machine:
+  environment:
+      NODE_ENV: production
   node:
-    version: 5.7.0
+    version: 5.10.0
