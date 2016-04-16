@@ -1,6 +1,6 @@
 {
   "parser": "babel-eslint",
-  "extends": [ "standard", "airbnb" ],
+  "extends": [ "standard" ],
   "plugins": [ "react", "standard", "promise" ],
 
  "rules": {
