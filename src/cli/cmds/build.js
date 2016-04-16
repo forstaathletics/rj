@@ -6,13 +6,25 @@ export const alias = 'b'
 export const desc = 'Build project for deployment'
 export const name = 'build'
 
-export const builder = {}
+export const builder = {
+  prod: {
+    default: false,
+    alias: 'p',
+    type: 'boolean'
+  },
+  dev: {
+    default: true,
+    alias: 'd',
+    type: 'boolean'
+  }
+}
 
 export const handler = (argv) => {
   console.log('build', argv)
   console.log('proejct root', projectRoot())
 
-  // if (process.env.NODE_ENV === 'production') {
+  // if (argv.p) {
+  // } else {
   // }
 
   // const = webpack(webpackConfig)

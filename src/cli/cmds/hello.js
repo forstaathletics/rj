@@ -7,7 +7,6 @@ export const builder = {
     alias: 's',
     type: 'boolean'
   }
-
 }
 
 export const handler = (argv) => {
