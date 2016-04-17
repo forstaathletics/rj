@@ -1,2 +1,1 @@
-// let init = () => {
-// }
+export Config from './config'

@@ -2,13 +2,12 @@
   "name": "rj-cli",
   "version": "0.1.0-beta.4",
   "description": "rj, Command React",
-  "main": "src/index.js",
+  "main": "dist/index",
   "scripts": {
-    "build": "babel src/ -d dist",
+    "build": "rm -fr dist; babel src/ -d dist --ignore 'test'",
     "lint": "eslint --ext .js --ext .jsx src",
     "prepublish": "npm run build",
     "rebuild": "rm -fr node_modules/*; npm install",
-    "postinstall": "rm -fr node_modules/*; npm install",
     "test": "NODE_PATH='./src' ava test/**/*-test.js --verbose --require ./test/helpers/setup-ava-tests.js"
   },
   "bin": {
@@ -64,6 +63,7 @@
     "meow": "^3.7.0",
     "ora": "^0.2.0",
     "redux": "^3.3.1",
+    "redux-promise": "^0.5.3",
     "uppercamelcase": "^1.1.0",
     "yargs": "^4.6.0"
   },

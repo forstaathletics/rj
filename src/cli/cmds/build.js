@@ -1,5 +1,5 @@
-// import webpack from 'webpack'
-// import Config from 'rj/config'
+import webpack from 'webpack'
+import Config from '../../config'
 import projectRoot from '../../utils/project-root'
 
 export const alias = 'b'
@@ -20,12 +20,13 @@ export const builder = {
 }
 
 export const handler = (argv) => {
-  console.log('build', argv)
   console.log('proejct root', projectRoot())
 
-  // if (argv.p) {
-  // } else {
-  // }
+  if (argv.p) {
+    console.log('production', Config)
+  } else {
+    console.log('development', Config)
+  }
 
   // const = webpack(webpackConfig)
 }
