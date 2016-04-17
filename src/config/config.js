@@ -1,3 +1,4 @@
+import path from 'path'
 import { Map, List, Iterable } from 'immutable'
 import _defaultCfg from './defaults'
 
@@ -81,7 +82,14 @@ let Config = () => {
       })
 
       _cfg = _cfg.merge(cfg)
-    }
+    },
+    // applyPath: function (p) {
+    //   console.log('applyPath', p)
+
+    //   console.log('RJC', path.join(p, 'rj.js'))
+    //   const rjc = require(path.join(p, 'rj.js'))
+    //   console.log('RJC', rjc)
+    // }
   }
 }
 

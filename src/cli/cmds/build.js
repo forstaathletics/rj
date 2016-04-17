@@ -1,3 +1,4 @@
+import path from 'path'
 import webpack from 'webpack'
 import Config from '../../config'
 import projectRoot from '../../utils/project-root'
@@ -20,13 +21,21 @@ export const builder = {
 }
 
 export const handler = (argv) => {
-  console.log('proejct root', projectRoot())
+  const pRoot = projectRoot()
+  console.log('PWD', process.env.PWD)
+  console.log('proejct root', pRoot)
 
   if (argv.p) {
-    console.log('production', Config)
+    console.log('production')
   } else {
-    console.log('development', Config)
+    console.log('development')
   }
+
+  const cfg = Config()
+  const rjc = require('./rj.js')
+  // cfg.applyPath(pRoot)
+  console.log('CFG', cfg)
+  console.log('RJC', rjc)
 
   // const = webpack(webpackConfig)
 }
