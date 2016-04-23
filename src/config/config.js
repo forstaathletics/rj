@@ -6,10 +6,10 @@ let setExcept = 'Only immutable/string/number/boolean values are allowed in the 
 let pushExcept = 'push() only supports config items of type List'
 let onlyMapExcept = 'Only Immutable Map is allowed as a config document'
 
-let Config = () => {
+let Config = (...args) => {
   let _cfg = _defaultCfg
 
-  return {
+  const res = {
     get: (name) => _cfg.get(name),
 
     /**
@@ -82,15 +82,18 @@ let Config = () => {
       })
 
       _cfg = _cfg.merge(cfg)
+      return _cfg
     },
-    // applyPath: function (p) {
-    //   console.log('applyPath', p)
 
-    //   console.log('RJC', path.join(p, 'rj.js'))
-    //   const rjc = require(path.join(p, 'rj.js'))
-    //   console.log('RJC', rjc)
-    // }
+    toString: function () { return _cfg.toString() }
   }
+
+  // Apply any args as an overlay config
+  if (Array.isArray(args) && args.length > 0) {
+    _cfg = args.reduce(_cfg, (prev, cfg) => { prev.apply(cfg) })
+  }
+
+  return res
 }
 
 Config.defaults = _defaultCfg
