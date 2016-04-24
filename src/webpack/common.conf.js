@@ -32,9 +32,9 @@ export default (projectRoot) => ({
 
   resolve: {
     root: [
-      path.join(projectRoot, 'node_modules'),
       path.join(projectRoot, 'src'),
-      path.join(projectRoot, 'src', 'pods')
+      path.join(projectRoot, 'src', 'pods'),
+      path.join(projectRoot, 'node_modules')
     ],
     extensions: ['', '.jsx', '.js', '.json', '.css'],
     modulesDirectories: ['node_modules', 'src', 'src/pods']
@@ -80,10 +80,10 @@ export default (projectRoot) => ({
     autoprefixer,
     precss,
     calcFunction({mediaQueries: true, warnWhenCannotResolve: true})
-  ],
+  ]
 
-  node: {
-    fs: 'empty',
-    'child_process': 'empty'
-  }
+  // node: {
+  //   fs: 'empty',
+  //   'child_process': 'empty'
+  // }
 })
