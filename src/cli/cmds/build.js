@@ -4,8 +4,8 @@ import Config from '../../config'
 import projectRoot from '../../utils/project-root'
 
 export const alias = 'b'
-export const desc = 'Build project for deployment'
-export const name = 'build'
+export const command = 'build'
+export const describe = 'Build project for deployment'
 
 export const builder = {
   prod: {
@@ -22,6 +22,7 @@ export const builder = {
 
 export const handler = (argv) => {
   const pRoot = projectRoot()
+  console.log('argv', argv)
   console.log('PWD', process.env.PWD)
   console.log('proejct root', pRoot)
 
@@ -31,11 +32,11 @@ export const handler = (argv) => {
     console.log('development')
   }
 
-  const cfg = Config()
-  const rjc = require('./rj.js')
-  // cfg.applyPath(pRoot)
-  console.log('CFG', cfg)
-  console.log('RJC', rjc)
+  // const cfg = Config()
+  // const rjc = require('./rj.js')
+  // // cfg.applyPath(pRoot)
+  // console.log('CFG', cfg)
+  // console.log('RJC', rjc)
 
   // const = webpack(webpackConfig)
 }

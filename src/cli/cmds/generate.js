@@ -1,5 +1,5 @@
-export const desc = 'Generate a command module'
-export const name = 'generate <item>'
+export const describe = 'Generate a command module'
+export const command = 'generate <item>'
 export const alias = 'g'
 
 export const builder = {

@@ -1,4 +1,5 @@
 import Config from './config'
+import Cli from './cli'
 
 export default (conf) => {
   let config = Config()
@@ -10,4 +11,4 @@ export default (conf) => {
   return config
 }
 
-export { Config }
+export { Config, Cli }
