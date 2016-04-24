@@ -2,6 +2,7 @@
 
 import yargs from 'yargs'
 import path from 'path'
+import { Config } from '..'
 import { findCmds } from '../utils/cmd'
 
 export default (cfg) => {
@@ -9,7 +10,7 @@ export default (cfg) => {
   let cmds = findCmds(cmdsDir)
 
   process.title = 'rj'
-  yargs.default({'cfg': cfg})
+  yargs.default('cfg', cfg || Config()).global('cfg')
 
   cmds.subs.map((sub) => {
     if (sub.reqObjKeys.includes('builder') &&
