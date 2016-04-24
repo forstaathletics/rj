@@ -1,5 +1,5 @@
 import webpack from 'webpack'
-import projectRoot from '../../utils/project-root'
+// import projectRoot from '../../utils/project-root'
 import * as wpk from '../../webpack'
 
 export const alias = 'b'
@@ -25,21 +25,24 @@ export const builder = {
 }
 
 export const handler = (argv) => {
-  const pRoot = projectRoot()
-  let wpConfig = wpk.devConfig
-  console.log('argv', argv)
-  console.log('PWD', process.env.PWD)
-  console.log('proejct root', pRoot)
+  // const pRoot = projectRoot()
+  const pRoot = argv.cfg.get('APP_ROOT')
+  let wpConfig = wpk.devConfig(pRoot)
 
+  console.log('argv', argv)
+  console.log('cfg', argv.cfg)
+  console.log('PWD', process.env.PWD)
+  console.log('project root', pRoot)
+  console.log('proecjt cfg APP_ROOT', argv.cfg.get('APP_ROOT'))
   console.log('WebPack configs', wpk)
 
   if (argv.p) {
     console.log('production')
-    console.log('WebPack configs prod', wpk.prodConfig)
-    wpConfig = wpk.prodConfig
+    wpConfig = wpk.prodConfig(pRoot)
+    console.log('WebPack configs prod', wpConfig)
   } else {
     console.log('development')
-    console.log('WebPack configs dev', wpk.devConfig)
+    console.log('WebPack configs dev', wpConfig)
   }
 
   // const cfg = Config()

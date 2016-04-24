@@ -6,28 +6,32 @@ import commonConfig from './common.conf'
 //   filename: path.join('..', '..', 'dist', 'index.html')
 // })
 
-export default Object.assign(commonConfig, {
-  devtool: '#eval-source-map',
+export default (projectRoot) => {
+  const commonCfg = commonConfig(projectRoot)
 
-  entry: ['webpack-hot-middleware/client', './src/index.js'],
+  return Object.assign(commonCfg, {
+    devtool: '#eval-source-map',
 
-  plugins: commonConfig.plugins.concat([
-    new webpack.DefinePlugin({
-      __DEVELOPMENT__: true
-    }),
-    // new HtmlWebpackPlugin(indexHtml),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
-  ]),
+    entry: ['webpack-hot-middleware/client', './src/index.js'],
 
-  module: {
-    loaders: commonConfig.module.loaders.concat([
-      {
-        test: /\.js|\.jsx$/,
-        loaders: ['react-hot', 'babel-loader'],
-        exclude: /node_modules/
-      }
-    ])
-  }
-})
+    plugins: commonCfg.plugins.concat([
+      new webpack.DefinePlugin({
+        __DEVELOPMENT__: true
+      }),
+      // new HtmlWebpackPlugin(indexHtml),
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoErrorsPlugin(),
+      new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
+    ]),
+
+    module: {
+      loaders: commonCfg.module.loaders.concat([
+        {
+          test: /\.js|\.jsx$/,
+          loaders: ['react-hot', 'babel-loader'],
+          exclude: /node_modules/
+        }
+      ])
+    }
+  })
+}

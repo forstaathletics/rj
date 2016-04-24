@@ -4,7 +4,7 @@ import autoprefixer from 'autoprefixer'
 import precss from 'precss'
 import calcFunction from 'postcss-calc'
 
-export default {
+export default (projectRoot) => ({
   // indexHtml: {
   //   inject: 'body',
   //   hash: false,
@@ -16,7 +16,7 @@ export default {
   // Create a vendor bundle that has the bulk or all of our library/dependencies
   // in it.
   entry: {
-    main: path.join(__dirname, '..', 'src', 'index.js'),
+    main: path.join(projectRoot, 'src', 'index.js'),
     vendors: ['react', 'react-dom', 'react-redux',
       'react-router', 'react-router-redux', 'immutable',
       'redux', 'redux-promise', 'redux-actions'
@@ -26,15 +26,15 @@ export default {
   output: {
     filename: '[name].bundle.js',
     chunkFilename: '[id].bundle.js',
-    path: path.join('dist', 'static', 'js'),
+    path: path.join(projectRoot, 'dist', 'static', 'js'),
     publicPath: '/static/'
   },
 
   resolve: {
     root: [
-      path.join(__dirname, 'node_modules'),
-      path.join(__dirname, 'src'),
-      path.join(__dirname, 'src', 'pods')
+      path.join(projectRoot, 'node_modules'),
+      path.join(projectRoot, 'src'),
+      path.join(projectRoot, 'src', 'pods')
     ],
     extensions: ['', '.jsx', '.js', '.json', '.css'],
     modulesDirectories: ['node_modules', 'src', 'src/pods']
@@ -80,5 +80,10 @@ export default {
     autoprefixer,
     precss,
     calcFunction({mediaQueries: true, warnWhenCannotResolve: true})
-  ]
-}
+  ],
+
+  node: {
+    fs: 'empty',
+    'child_process': 'empty'
+  }
+})
