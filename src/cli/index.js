@@ -1,8 +1,6 @@
-#!/usr/bin/env node
-
 import yargs from 'yargs'
 import path from 'path'
-import { Config } from '..'
+import { Config } from '../'
 import { findCmds } from '../utils/cmd'
 
 export default (cfg) => {
