@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-export let describe =  'Create a JS module from the given path(s)'
+export let describe = 'Create a JS module from the given path(s)'
 export let command = 'mod'
 
 const pathParts = (mPath) => {

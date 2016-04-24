@@ -66,9 +66,9 @@ export default {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url?limit=10000&mimetype=image/svg+xml'
       }, {
-      // Inline images smaller than 5K, otherwise got to the network
-      test: /\.(png|jpg|gif)$/,
-      loader: 'url-loader?limit=5120,name=img/img-[hash:6].[ext]'
+        // Inline images smaller than 5K, otherwise got to the network
+        test: /\.(png|jpg|gif)$/,
+        loader: 'url-loader?limit=5120,name=img/img-[hash:6].[ext]'
       }, {
         test: /\.css$/,
         loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!postcss-loader'

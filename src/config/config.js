@@ -1,4 +1,3 @@
-import path from 'path'
 import { Map, List, Iterable } from 'immutable'
 import _defaultCfg from './defaults'
 

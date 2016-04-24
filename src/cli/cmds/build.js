@@ -1,6 +1,3 @@
-import path from 'path'
-import webpack from 'webpack'
-import Config from '../../config'
 import projectRoot from '../../utils/project-root'
 
 export const alias = 'b'
