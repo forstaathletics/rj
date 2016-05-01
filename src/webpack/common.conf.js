@@ -26,7 +26,7 @@ export default (projectRoot) => ({
   output: {
     filename: '[name].bundle.js',
     chunkFilename: '[id].bundle.js',
-    path: path.join(projectRoot, 'dist', 'static', 'js'),
+    path: path.join(projectRoot, 'dist', 'static'),
     publicPath: '/static/'
   },
 

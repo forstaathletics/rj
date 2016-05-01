@@ -2,7 +2,6 @@ import express from 'express'
 import path from 'path'
 
 let installWebHot = (app, config, wconfig) => {
-  console.log('installWebHot', app, config, wconfig)
 
   let webpack = require('webpack')
   let webpackDevMiddleware = require('webpack-dev-middleware')
@@ -21,7 +20,6 @@ let installWebHot = (app, config, wconfig) => {
   }))
 
   app.use(whm(compiler, {
-    log: console.log,
     path: '/__webpack_hmr',
     heartbeat: 10 * 1000
   }))
@@ -35,11 +33,7 @@ let installWebHot = (app, config, wconfig) => {
 }
 
 export default function (appCfg) {
-  console.log('Server appCfg', appCfg)
-  let indexPath = 'index.html'
-
   let wpConfig = appCfg.get('webpack')
-
   let config = {
     rootPath: path.join(appCfg.get('APP_ROOT'), appCfg.get('BUILD_OUTPUT_DIR')),
     staticPath: 'static',
@@ -47,6 +41,7 @@ export default function (appCfg) {
     compress: true,
     static: {
       path: 'static',
+      index: 'index.html',
       maxAge: 3600000 * 24 * 28 // four weeks
     }
   }
@@ -90,67 +85,8 @@ export default function (appCfg) {
   })
 
   app.get('*', function rootAnything (req, res) {
-    res.sendFile(indexPath, {root: config.rootPath})
+    res.sendFile(config.static.index, {root: config.rootPath})
   })
 
-  console.log('New SERVER instance', ctx)
   return ctx
 }
-
-// var root_path = path.join(__dirname, 'build')
-// var static_path = path.join(root_path, 'static')
-// var indexPath = 'index.html'
-
-
-// if (isDevelopment) {
-//   var WebpackConfig = require('./webpack/dev.config')
-//   var compiler = webpack(WebpackConfig)
-//   var webpackDevMiddleware = require('webpack-dev-middleware')
-//   root_path = path.join(__dirname, 'dist')
-//   static_path = path.join(root_path, 'static')
-
-//   // A middleware logger
-//   app.use(require('morgan')('short'))
-
-//   app.use(webpackDevMiddleware(compiler, {
-//     noInfo: true,
-//     publicPath: WebpackConfig.output.publicPath,
-//     hot: true
-//   }))
-
-//   app.use(require('webpack-hot-middleware')(compiler, {
-//     log: console.log,
-//     path: '/__webpack_hmr',
-//     heartbeat: 10 * 1000
-//   }))
-
-//   app.use('/static', express.static(static_path))
-// } else {
-//   var compression = require('compression')
-//   var oneHour = 3600000
-//   var oneDay = oneHour * 24
-//   var oneWeek = oneDay * 7
-
-//   app.use(compression())
-//   app.use('/static', express.static(static_path, {maxAge: oneWeek}))
-// }
-
-// // app.use(bodyParser.json())
-// // app.use(bodyParser.urlencoded({extended: true}))
-
-// app.get('/', function root (req, res) {
-//   res.sendFile(indexPath, {root: root_path})
-// })
-
-// app.get('*', function rootAnything (req, res) {
-//   res.sendFile(indexPath, {root: root_path})
-// })
-
-// // var server = app.listen(port, function onListen (err) {
-// //   if (err) console.log(err)
-
-// //   var host = server.address().address
-// //   var port = server.address().port
-// //   console.log('Example app listening at http://%s:%s, Ctrl+C to stop', host, port)
-// // })
-
