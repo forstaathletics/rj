@@ -1,6 +1,5 @@
 import webpack from 'webpack'
 import commonConfig from './common.conf'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 export default (projectRoot) => {
   const commonCfg = commonConfig(projectRoot)
