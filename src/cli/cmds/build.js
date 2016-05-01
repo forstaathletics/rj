@@ -27,18 +27,17 @@ export const builder = {
 export const handler = (argv) => {
   // const pRoot = projectRoot()
   const pRoot = argv.cfg.get('APP_ROOT')
-  let wpConfig = wpk.devConfig(pRoot)
+  let wpConfig = wpk.dev(pRoot)
 
   console.log('argv', argv)
   console.log('cfg', argv.cfg)
   console.log('PWD', process.env.PWD)
   console.log('project root', pRoot)
   console.log('proecjt cfg APP_ROOT', argv.cfg.get('APP_ROOT'))
-  console.log('WebPack configs', wpk)
 
   if (argv.p) {
     console.log('production')
-    wpConfig = wpk.prodConfig(pRoot)
+    wpConfig = wpk.prod(pRoot)
     console.log('WebPack configs prod', wpConfig)
   } else {
     console.log('development')

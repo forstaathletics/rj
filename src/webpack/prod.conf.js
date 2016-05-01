@@ -1,5 +1,6 @@
 import webpack from 'webpack'
 import commonConfig from './common.conf'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 export default (projectRoot) => {
   const commonCfg = commonConfig(projectRoot)
@@ -16,7 +17,6 @@ export default (projectRoot) => {
           NODE_ENV: '"production"'
         }
       }),
-      // new HtmlWebpackPlugin(commonCfg.indexHtml),
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           warnings: false
