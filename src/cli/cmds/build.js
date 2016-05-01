@@ -25,30 +25,14 @@ export const builder = {
 }
 
 export const handler = (argv) => {
-  // const pRoot = projectRoot()
-  const pRoot = argv.cfg.get('APP_ROOT')
   let wpConfig = wpk.dev(pRoot)
 
-  console.log('argv', argv)
-  console.log('cfg', argv.cfg)
-  console.log('PWD', process.env.PWD)
-  console.log('project root', pRoot)
-  console.log('proecjt cfg APP_ROOT', argv.cfg.get('APP_ROOT'))
-
   if (argv.p) {
-    console.log('production')
+    console.log('production build')
     wpConfig = wpk.prod(pRoot)
-    console.log('WebPack configs prod', wpConfig)
   } else {
-    console.log('development')
-    console.log('WebPack configs dev', wpConfig)
+    console.log('development build')
   }
-
-  // const cfg = Config()
-  // const rjc = require('./rj.js')
-  // // cfg.applyPath(pRoot)
-  // console.log('CFG', cfg)
-  // console.log('RJC', rjc)
 
   // Create a compiler
   const compiler = webpack(wpConfig)
