@@ -2,6 +2,7 @@ import express from 'express'
 import path from 'path'
 
 let installWebHot = (app, config, wconfig) => {
+  console.log('installWebHot', app, config, wconfig)
 
   let webpack = require('webpack')
   let webpackDevMiddleware = require('webpack-dev-middleware')
@@ -15,7 +16,7 @@ let installWebHot = (app, config, wconfig) => {
 
   app.use(webpackDevMiddleware(compiler, {
     noInfo: true,
-    publicPath: WebpackConfig.output.publicPath,
+    publicPath: wconfig.output.publicPath,
     hot: true
   }))
 
@@ -33,24 +34,27 @@ let installWebHot = (app, config, wconfig) => {
   return app
 }
 
-export default function (config) {
+export default function (appCfg) {
+  console.log('Server appCfg', appCfg)
   let indexPath = 'index.html'
-  if(!config.rootPath) {
-    throw Error('The config value rootPath is required!!!')
-  }
 
-  config.staticPath = config.staticPath || 'static'
-  config.isDevelopment = (process.env.NODE_ENV !== 'production')
-  config.compress = config.compress = true
-  config.static = config.static || {
-    path: 'static',
-    maxAge: 3600000 * 24 * 28 // four weeks
+  let wpConfig = appCfg.get('webpack')
+
+  let config = {
+    rootPath: path.join(appCfg.get('APP_ROOT'), appCfg.get('BUILD_OUTPUT_DIR')),
+    staticPath: 'static',
+    isDevelopment: process.env.NODE_ENV !== 'production',
+    compress: true,
+    static: {
+      path: 'static',
+      maxAge: 3600000 * 24 * 28 // four weeks
+    }
   }
 
   let app = express()
 
   let ctx = {
-    listen: function (port) {
+    serve: function (port) {
       return app.listen(
         port || process.env.PORT || 8080,
         function onListen (err) {
@@ -67,7 +71,7 @@ export default function (config) {
   }
 
   if (config.isDevelopment) {
-    installWebHot(app, config, {})
+    installWebHot(app, config, wpConfig.get('dev'))
   } else {
     if (config.compression) {
       let compression = require('compression')
@@ -89,6 +93,7 @@ export default function (config) {
     res.sendFile(indexPath, {root: config.rootPath})
   })
 
+  console.log('New SERVER instance', ctx)
   return ctx
 }
 
