@@ -1,10 +1,5 @@
 import webpack from 'webpack'
 import commonConfig from './common.conf'
-// import HtmlWebpackPlugin from 'html-webpack-plugin'
-
-// var indexHtml = Object.assign(commonConfig.indexHtml, {
-//   filename: path.join('..', '..', 'dist', 'index.html')
-// })
 
 export default (projectRoot) => {
   const commonCfg = commonConfig(projectRoot)
@@ -18,7 +13,6 @@ export default (projectRoot) => {
       new webpack.DefinePlugin({
         __DEVELOPMENT__: true
       }),
-      // new HtmlWebpackPlugin(indexHtml),
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
       new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')

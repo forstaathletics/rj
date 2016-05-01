@@ -6,6 +6,7 @@ let pushExcept = 'push() only supports config items of type List'
 let onlyMapExcept = 'Only Immutable Map is allowed as a config document'
 
 let Config = (...args) => {
+  // console.log('Config args', args)
   let _cfg = _defaultCfg
 
   const res = {
@@ -81,7 +82,6 @@ let Config = (...args) => {
       })
 
       _cfg = _cfg.merge(cfg)
-      return _cfg
     },
 
     toString: function () { return _cfg.toString() }
@@ -89,7 +89,7 @@ let Config = (...args) => {
 
   // Apply any args as an overlay config
   if (Array.isArray(args) && args.length > 0) {
-    _cfg = args.reduce(_cfg, (prev, cfg) => { prev.apply(cfg) })
+    args.reduce((prev, cfg) => { prev.apply(cfg); return prev }, res)
   }
 
   return res
