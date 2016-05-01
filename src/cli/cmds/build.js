@@ -25,6 +25,7 @@ export const builder = {
 }
 
 export const handler = (argv) => {
+  const pRoot = argv.cfg.get('APP_ROOT')
   let wpConfig = wpk.dev(pRoot)
 
   if (argv.p) {

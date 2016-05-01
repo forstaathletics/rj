@@ -2,7 +2,6 @@ import express from 'express'
 import path from 'path'
 
 let installWebHot = (app, config, wconfig) => {
-
   let webpack = require('webpack')
   let webpackDevMiddleware = require('webpack-dev-middleware')
   let morgan = require('morgan')

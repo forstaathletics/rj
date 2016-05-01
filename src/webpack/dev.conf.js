@@ -1,4 +1,3 @@
-var path = require('path')
 import webpack from 'webpack'
 import commonConfig from './common.conf'
 
