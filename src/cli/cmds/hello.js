@@ -1,5 +1,5 @@
-export const desc = false
-export const name = 'hello'
+export const describe = false
+export const command = 'hello'
 
 export const builder = {
   sassy: {
@@ -7,7 +7,6 @@ export const builder = {
     alias: 's',
     type: 'boolean'
   }
-
 }
 
 export const handler = (argv) => {

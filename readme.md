@@ -1,13 +1,13 @@
 # rj
 ### Command React.
 
-[![Build Status](https://secure.travis-ci.org/forstaathletics/rj.png?branch=master)](https://travis-ci.org/forstaathletics/rj) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard) [![Circle CI](https://circleci.com/gh/forstaathletics/rj.svg?style=svg)](https://circleci.com/gh/forstaathletics/rj)  
+[![Circle CI](https://circleci.com/gh/forstaathletics/rj.svg?style=svg)](https://circleci.com/gh/forstaathletics/rj) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)   
 
 <img src="http://www.fillmurray.com/56/56" style="border-radius:50%;" /> __A Work in progress__
 
 
 ```
-npm i -g rj && rj new awesome-react-project
+npm i -g rj-cli && rj new awesome-react-project
 ```
 
 
@@ -41,7 +41,7 @@ Built with < 3 using:
 ## Installation
 
 ```sh
-npm i -g rj
+npm i -g rj-cli
 ```
 
 ## Usage

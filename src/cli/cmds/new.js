@@ -4,8 +4,8 @@ import path from 'path'
 import fs from 'fs'
 
 export const alias = 'n'
-export const desc = 'Create new rj project'
-export const name = 'new'
+export const describe = 'Create new rj project'
+export const command = 'new'
 
 export const builder = {}
 export const handler = (argv) => {

@@ -1,18 +1,19 @@
 {
   "name": "rj-cli",
-  "version": "0.1.0-beta.3",
+  "version": "0.1.0-beta.4",
   "description": "rj, Command React",
-  "main": "src/index.js",
+  "main": "dist",
   "scripts": {
-    "build": "babel src/ -d dist",
+    "build": "rm -fr dist; babel src/ -d dist --ignore 'test'",
     "lint": "eslint --ext .js --ext .jsx src",
     "prepublish": "npm run build",
+    "rebuild": "rm -fr node_modules/*; npm install",
     "test": "NODE_PATH='./src' ava test/**/*-test.js --verbose --require ./test/helpers/setup-ava-tests.js"
   },
   "bin": {
     "rj": "./bin/rj"
   },
-  "repository": "jeffbuttars/rj",
+  "repository": "forstaathletics/rj",
   "keywords": [
     "React",
     "JavaScript",
@@ -23,13 +24,13 @@
     "babel",
     "eslint"
   ],
-  "author": "Jeff Buttars <jeffbuttars@gmail.com> (jeffbuttars@gmail.com)",
+  "author": "Forsta",
   "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
     "ava": "^0.13.0",
     "babel-cli": "^6.6.5",
     "babel-core": "^6.7.2",
-    "babel-eslint": "^5.0.0",
+    "babel-eslint": "^5.0.4",
     "babel-loader": "^6.2.4",
     "babel-plugin-add-module-exports": "^0.1.2",
     "babel-plugin-array-includes": "^2.0.3",
@@ -40,29 +41,38 @@
     "babel-preset-stage-2": "^6.5.0",
     "babel-register": "^6.7.2",
     "babel-runtime": "^6.6.1",
-    "eslint": "^2.4.0",
-    "eslint-config-airbnb": "^6.1.0",
+    "eslint": "^2.8.0",
     "eslint-config-standard": "^5.1.0",
     "eslint-plugin-promise": "^1.1.0",
-    "eslint-plugin-react": "^4.2.3",
+    "eslint-plugin-react": "^4.3.0",
     "eslint-plugin-standard": "^1.3.2",
     "estraverse": "^4.2.0",
     "estraverse-fb": "^1.3.1",
+    "imurmurhash": "^0.1.4",
     "jsdom": "^8.1.0",
     "webpack": "^1.12.14"
   },
   "dependencies": {
-    "babel-polyfill": "^6.7.2",
+    "autoprefixer": "^6.3.6",
+    "babel-loader": "^6.2.4",
     "chalk": "^1.1.1",
     "copy-dir": "0.0.8",
+    "estraverse": "^4.2.0",
+    "estraverse-fb": "^1.3.1",
     "immutable": "^3.7.6",
     "is-blank": "^1.1.0",
     "is-present": "^1.0.0",
     "meow": "^3.7.0",
     "ora": "^0.2.0",
-    "uppercamelcase": "^1.1.0",
+    "postcss-calc": "^5.2.1",
+    "precss": "^1.4.0",
+    "react": "^15.0.1",
+    "react-hot-loader": "^1.3.0",
     "redux": "^3.3.1",
-    "yargs": "^4.3.1"
+    "redux-promise": "^0.5.3",
+    "uppercamelcase": "^1.1.0",
+    "webpack-hot-middleware": "^2.10.0",
+    "yargs": "^4.6.0"
   },
   "ava": {
     "babel": "inherit"

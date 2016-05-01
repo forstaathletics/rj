@@ -1,6 +1,6 @@
 export const alias = 's'
-export const desc = 'Serve the current rj project'
-export const name = 'serve'
+export const describe = 'Serve the current rj project'
+export const command = 'serve'
 
 export const builder = {}
 export const handler = (argv) => {

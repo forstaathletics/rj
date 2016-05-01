@@ -1,10 +1,10 @@
 import path from 'path'
 import fs from 'fs'
 import { cmdDir } from '../../constants'
-import { findRjRoot } from '../../utils'
+import { findRjRoot } from './utils'
 
-export const desc = 'Generate a rj command module'
-export const name = 'cmd <name>'
+export const describe = 'Generate a rj command module'
+export const command = 'cmd <name>'
 
 export const builder = {
   force: {
